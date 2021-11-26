@@ -117,7 +117,7 @@ export default TaskDetail
 const styles = StyleSheet.create({
     container: {
         marginTop:30,
-        paddingHorizontal:30,
+        paddingHorizontal:20,
         backgroundColor:colors.LIGHT,
         margin:20,
         borderRadius:10,
@@ -125,23 +125,27 @@ const styles = StyleSheet.create({
         padding:30,
         alignSelf:'center',
         justifyContent: 'center',
+        width:"90%",
+       
         
     },
     title:{
         fontWeight:'bold',
         color:colors.PRIMARY,
-        fontSize:30
+        fontSize:26
     },
     desc:{
         fontSize:20,
         opacity:0.7,
-        textAlign:'justify'
+        textAlign:'justify',
+        color:colors.DARK
     },
 
     time:{
         textAlign:'right',
         opacity:0.6,
         fontSize:15,
+        color:colors.DARK
     },
 
     btnContainer:{

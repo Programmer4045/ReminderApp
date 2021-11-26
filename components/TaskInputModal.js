@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Button, Keyboard, Modal, StyleSheet, Text, TextInput, TouchableWithoutFeedback, View } from 'react-native'
+import { Button, Keyboard, Modal, ScrollView, StyleSheet, Text, TextInput, TouchableWithoutFeedback, View } from 'react-native'
 import colors from '../misc/colors'
 import { RoundBtn } from './RoundBtn';
 import DateTimePicker from '@react-native-community/datetimepicker';
@@ -118,14 +118,16 @@ const TaskInputModal = ({visible, onClose, onSubmit, Task, isEdit}) => {
      }
     return (
         <Modal visible={visible} animationType='fade'>
+         <ScrollView>
             <View style={styles.container}>
+            
             <Text style={{fontWeight:'bold',fontSize:24, color:colors.DARK,marginBottom:5,textAlign:'center'}}>Task Board</Text>
               
               <Text style={{fontWeight:'bold',fontSize:24, color:colors.DARK,marginBottom:5}}>Title</Text>
-              <TextInput value={title} onChangeText={(text)=> handleOnChangeText(text,'title')} placeholder={"Title"} style={[styles.input, styles.title]} />
+              <TextInput value={title} onChangeText={(text)=> handleOnChangeText(text,'title')} placeholder={"Title"} placeholderTextColor="#616161" style={[styles.input, styles.title]} />
               <Text style={{fontWeight:'bold',fontSize:24, color:colors.DARK,marginBottom:5}}>Description</Text>
               
-              <TextInput value={desc}  onChangeText={(text)=> handleOnChangeText(text,'Desc')} multiline placeholder={"Description"} style={[styles.input, styles.desc]} />
+              <TextInput value={desc}  onChangeText={(text)=> handleOnChangeText(text,'Desc')} multiline placeholder={"Description"} placeholderTextColor="#616161" style={[styles.input, styles.desc]} />
               <Text style={{fontWeight:'bold',fontSize:24, color:colors.DARK,marginBottom:5, marginTop:15}}>Set Date & Time</Text>
               
               <View style={styles.pickedDateContainer}>
@@ -136,6 +138,7 @@ const TaskInputModal = ({visible, onClose, onSubmit, Task, isEdit}) => {
         <Button onPress={showDatepicker} title="Set date" color={colors.PRIMARY} />
         <View style={{height:2,backgroundColor:"#000", margin:10}}></View>
         <Button onPress={showTimepicker} title="Set Time" color={colors.PRIMARY} />
+       
       </View>
       
       {show && (
@@ -157,6 +160,7 @@ const TaskInputModal = ({visible, onClose, onSubmit, Task, isEdit}) => {
             <TouchableWithoutFeedback onPress={handleOnClose}>
                 <View style={[styles.ModalBG, StyleSheet.absoluteFillObject]} />
             </TouchableWithoutFeedback>
+            </ScrollView>
         </Modal>
 
     )
@@ -178,7 +182,7 @@ const styles = StyleSheet.create({
         fontSize:17,
         color:colors.DARK,
         paddingLeft:10,
-
+        
     },
 
     title:{
@@ -186,7 +190,9 @@ const styles = StyleSheet.create({
           marginBottom:15,
           fontWeight:'bold',
           backgroundColor:'#eee',
-          elevation:5
+          elevation:5,
+          color:colors.PRIMARY,
+          
 
     },
 
@@ -222,6 +228,7 @@ const styles = StyleSheet.create({
 
       },
       pickedDate:{
-        fontSize:17
+        fontSize:17,
+        color:"#616161"
       }
 })

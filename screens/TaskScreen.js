@@ -25,8 +25,8 @@ const TaskScreen = ({user,navigation}) => {
 
     const findGreet = () => {
         const hrs = new Date().getHours();
-        if(hrs === 0 || hrs < 12) return setGreet('Morning')
-        if(hrs === 1 || hrs <17) return setGreet('Afternoon')
+        if(hrs === 0 || hrs < 11) return setGreet('Morning')
+        if(hrs === 12 || hrs <17) return setGreet('Afternoon')
         setGreet('Evening')
     }
 
